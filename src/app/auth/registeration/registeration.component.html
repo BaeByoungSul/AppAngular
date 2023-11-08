@@ -1,0 +1,92 @@
+<div fxLayout="column" fxLayoutAlign="flex-start center" class="top-div" >
+    <mat-card>
+        <mat-card-header class="card-header" >
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+        <form fxLayout="column"
+            [formGroup] = "form"
+            (ngSubmit) = "submit()">
+            <mat-form-field appearance="outline" floatLabel="always">
+              <mat-label>Email</mat-label>
+                <input type="text" matInput
+                    placeholder="Enter Email"
+                    formControlName="email">
+                <mat-error *ngIf="checkValidation('email')">
+                    {{ emailErrors() }}
+                </mat-error>                    
+            </mat-form-field>
+			<div formGroupName="passwordGroup" fxLayout="column" fxLayoutGap="2px">
+				<mat-form-field appearance="outline" floatLabel="always" style="margin-bottom: -1.25em">
+					<mat-label>Password</mat-label>
+					<input 
+						type="password"
+						matInput
+						placeholder="Enter Password"
+						formControlName="password"/>
+                    <!-- <mat-error *ngIf="checkValidation('passwordGroup.password')">
+                        {{ passwordErrors() }}
+                    </mat-error> -->
+				</mat-form-field>
+                <mat-error *ngIf="checkValidation('passwordGroup.password')">
+                    {{ passwordErrors() }}
+                </mat-error>
+				<mat-form-field  appearance="outline" floatLabel="always" >
+					<mat-label>Confirm Password</mat-label>
+					<input 
+						type="password"
+						matInput
+						placeholder="Enter Confirm Password"
+						formControlName="confirmPassword"/>
+                    <!-- <mat-error *ngIf="checkValidation('passwordGroup.confirmPassword')">
+                        {{ confirmPasswordErrors() }}
+                    </mat-error> -->
+
+				</mat-form-field>
+                <mat-error *ngIf="checkValidation('passwordGroup.confirmPassword')">
+                    {{ confirmPasswordErrors() }}
+                </mat-error>
+                <mat-error *ngIf="checkGroupValidation()" 
+                    style="background-color: transparent; height: min-content;">
+                    Passwords must match
+                </mat-error>
+                
+			</div>
+            
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>First Name</mat-label>
+                <input type="text" matInput
+                    placeholder="Enter Fisrt name"
+                    formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>Last Name</mat-label>
+                <input type="text" matInput
+                    placeholder="Enter Last name"
+                    formControlName="lastName">
+            </mat-form-field>
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>Display Name</mat-label>
+                <input type="text" matInput
+                    placeholder="Enter Display name"
+                    formControlName="displayName">
+            </mat-form-field>
+
+			<mat-card-actions    >
+                <button mat-raised-button color="primary">Register
+                        <mat-icon *ngIf="loading">
+                            <mat-spinner color="accent" diameter="20"> </mat-spinner>
+                        </mat-icon>                      
+                </button>
+                <div fxFlex></div>
+                <!-- <button mat-raised-button color="primary" 
+                        routerLink ="../login" 
+                        routerLinkActive="active">Cancel</button> -->
+
+                <a routerLink="../login"  >Cancel</a>
+                
+                <!-- <mat-spinner *ngIf="loading"></mat-spinner>
+                <button id="btn_login" mat-raised-button color="primary" >Login</button> -->
+            </mat-card-actions>            
+        </form>    
+    </mat-card>
+</div>

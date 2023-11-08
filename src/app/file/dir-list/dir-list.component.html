@@ -1,0 +1,23 @@
+
+    <div>
+        <button mat-raised-button class="btn_width" color="primary" (click)="homeClick()" >File
+          <mat-icon>home</mat-icon>
+        </button>
+    
+        <!-- serverfolders:  root path부터 시작한 dir path array -->
+        <button mat-raised-button color="primary" style="margin-left: 10px;"
+            *ngFor="let folder of serverfolders;let i = index" (click)="folderClick(i)">
+            {{folder}}
+        </button>    
+        
+        <!-- 선택한 폴더 하위 폴더 나타내기 -->
+        <mat-list fxLayout="row" fxLayoutGap="10px" >
+          <mat-list-item *ngFor="let folder of folders" (click)="subfolderClick(folder)"
+            style="background-color: bisque;">
+            <mat-icon matListItemIcon>folder</mat-icon>
+            <div matListItemTitle>{{folder.dirName}}</div>
+            <div matListItemLine>{{folder.updated | date}}</div>
+          </mat-list-item>
+        </mat-list>
+        
+    </div>

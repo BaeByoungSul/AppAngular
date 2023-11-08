@@ -1,0 +1,20 @@
+.top-div{
+    padding-top: 20px;
+    /* background-color: aquamarine; */
+}
+mat-card{
+    border-radius: 5px;
+    width: 800px; 
+    padding: 10px;
+    /* background-color: beige; */
+}  
+.card-header{
+  background-color: #2005e512; 
+  padding: 10px; 
+  margin-bottom: 10px;
+  border-radius: 5px;
+} 
+
+/* mat-error{
+  background-color: peachpuff;
+} */

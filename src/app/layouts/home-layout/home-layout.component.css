@@ -1,0 +1,36 @@
+.top-container
+{
+    /* padding-top: 5px;
+    padding-bottom: 5px; */
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/* mat-sidenav-container {
+    position: fixed;
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    min-width: 100%;
+ } */
+ 
+mat-sidenav-container{
+    height: 100%;
+    width: 100%;
+    margin-top: 2px;
+    border: 1px solid;
+    border-color: lightgray;
+}
+
+mat-sidenav {
+    height: auto;
+    width: auto;
+    min-width: 300px;
+}
+mat-sidenav-content{
+    padding: 5px;
+    height: 99%;
+    min-height: 99%;
+    /* background-color: rgb(134, 89, 159);  */
+}
+
+

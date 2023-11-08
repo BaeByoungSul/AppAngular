@@ -1,0 +1,16 @@
+<!-- <div *ngFor="let alert of alerts" class="{{cssClass(alert)}}">
+    <span [innerHTML]="alert.message"></span>
+    <button class="btn-close" (click)="removeAlert(alert)">
+        
+    </button>
+
+</div> -->
+
+<div mat-dialog-title class="dialog-title"
+     *ngFor="let alert of alerts" class="{{cssClass(alert)}}">
+    <h2>Title</h2>
+    <span [innerHTML]="alert.message"></span>
+    <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+</div>

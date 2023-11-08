@@ -1,0 +1,18 @@
+<mat-form-field style="width: 500px;  ">
+    <mat-label>Select a filename</mat-label>
+    <mat-select 
+      (selectionChange)="onFileSelection($event)"  
+      [(value)]="selected">
+      <mat-option style="width: 450px;"
+          *ngFor="let fileInfo of serverfileInfos" [value]="fileInfo.fileName">
+        {{fileInfo.fileName}}
+      </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<ng2-pdfjs-viewer #pdfViewer></ng2-pdfjs-viewer>
+
+<!-- <div style="height: 99%">
+	<ng2-pdfjs-viewer #pdfViewer></ng2-pdfjs-viewer>
+</div> -->

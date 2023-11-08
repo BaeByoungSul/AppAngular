@@ -1,0 +1,24 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeLayoutComponent } from '../layouts/home-layout/home-layout.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { FileDownloadComponent } from './file-download/file-download.component';
+import { FileUploadTestComponent } from './file-upload-test/file-upload-test.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeLayoutComponent,
+    children: [
+      { path: 'file-upload', component: FileUploadComponent },
+      { path: 'file-download', component: FileDownloadComponent }
+      
+    ]
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class FileRoutingModule { }

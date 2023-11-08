@@ -1,0 +1,100 @@
+<div fxLayout="column"  >
+  <div fxFlex="none" class="first-div" >
+    <app-dir-list (getDirInfoEvent)="receiveDirInfo($event)"></app-dir-list>
+  </div>
+  <div fxFlex class="second-div" >
+    <mat-tab-group mat-stretch-tabs="false"  >
+      <mat-tab label="Upload Files">
+          <div fxLayout="column" style="height: 100%; width: 100%;" >
+            <div fxFlex="none"  class="tab1-div1"
+              fxLayout="row" fxLayoutAlign="start center">
+              
+              <div fxFlex="200px" class="tab1-row-item" >
+                <mat-slide-toggle  [(ngModel)]="_multiple" >Multiple</mat-slide-toggle>
+              </div>
+              <div fxFlex="200px" class="tab1-row-item" > 
+                <button  type="button" 
+                    mat-raised-button color="primary"
+                    (click)="fileInput.click()">Choose File</button>
+                  <input #takeInput hidden 
+                    (change)="onFileSelect($event)" 
+                    #fileInput type="file" [multiple]="_multiple">
+                
+              </div>
+              <div fxFlex="100%" class="tab1-row-item" ></div>
+              <div fxFlex="200px" class="tab1-row-item" >
+                <button  mat-raised-button color="primary" (click)="onUpload()">Upload
+                  <mat-icon>cloud_upload</mat-icon>
+                </button>
+              </div>
+                
+            </div>
+            <div *ngIf="progress">
+              <mat-progress-bar mode="determinate" value="{{progress}}"></mat-progress-bar>
+            </div>              
+  
+            <div fxFlex class="tab1-div2"  >
+              <app-selected-files [files]="_selectedFiles"></app-selected-files>
+            </div>
+          </div>
+      </mat-tab>
+      <mat-tab label="View Files" >
+        <div fxFlex class="tab2-div1"  >
+          <app-file-list [dataSource]="dataSource" ></app-file-list>
+        </div>
+        
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+
+
+<!-- <div  class="top-div" >
+  <div style="height: 130px;">
+    <app-dir-list (getDirInfoEvent)="receiveDirInfo($event)"></app-dir-list>
+  </div>
+  <div style="background-color: beige">
+    <mat-tab-group  mat-stretch-tabs="false">
+      <mat-tab label="Upload Files">
+        <div fxLayout="column" class="tab-box mat-elevation-z4">
+          <div fxFlex="60px" 
+              fxLayout="row" 
+              fxLayoutAlign="center center"
+              style="background-color:lightgreen">
+            <div fxFlex="200px" >
+              <mat-slide-toggle  [(ngModel)]="_multiple" >Multiple</mat-slide-toggle>
+            </div>
+            <div fxFlex="200px"> 
+              <button  type="button" mat-raised-button color="primary"
+              style="margin-left: 20px;"
+              (click)="fileInput.click()">Choose File</button>
+              <input #takeInput hidden (change)="onFileSelect($event)" #fileInput type="file"
+              [multiple]="_multiple">
+              
+            </div>
+            <div fxFlex="100%"></div>
+            <div fxFlex="200px" >
+              <button  mat-raised-button color="primary" (click)="onUpload()">Upload
+                <mat-icon>cloud_upload</mat-icon>
+              </button>
+            </div>  
+          </div>
+          <div *ngIf="progress">
+            <mat-progress-bar mode="determinate" value="{{progress}}"></mat-progress-bar>
+          </div>
+
+          <div fxFlex="100%" style="background-color: chartreuse;">
+            <app-selected-files [files]="_selectedFiles"></app-selected-files>
+          </div>
+
+        </div>
+      </mat-tab>
+      
+      <mat-tab label="View Files">
+        <div class="tab-box mat-elevation-z4">
+          <app-file-list [dataSource]="dataSource" ></app-file-list>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+</div> -->
+

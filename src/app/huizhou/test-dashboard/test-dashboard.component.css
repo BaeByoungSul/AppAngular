@@ -1,0 +1,12 @@
+.container {
+  padding: 0px;
+}
+
+.grid-item {
+  background-color: lightsalmon;
+  border-radius: 5px;
+  padding: 2px;
+  min-width: 300px;
+  height: 300px;
+  margin: 5px;
+}

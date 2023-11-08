@@ -1,0 +1,40 @@
+<!-- <p>Account ID: {{ id }}</p> -->
+<!-- <div fxLayout="column" >
+  <div fxFlex="auto" style="width: 1000px; background-color: rgb(255, 225, 186);">
+    <mat-form-field style="width: 500px; ">
+      <mat-label>Select a filename</mat-label>
+      <mat-select 
+        (selectionChange)="onFileSelection($event)"  >
+        <mat-option style="width: 450px;"
+            *ngFor="let fileInfo of serverfileInfos" [value]="fileInfo.fileName">
+          {{fileInfo.fileName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxFlex="100%" #takeHtml id="result1" style="background-color: aqua;"></div>  
+</div> -->
+
+<mat-form-field style="width: 500px;  ">
+  <mat-label>Select a filename</mat-label>
+  <mat-select 
+    (selectionChange)="onFileSelection($event)"  >
+    <mat-option style="width: 450px;"
+        *ngFor="let fileInfo of serverfileInfos" [value]="fileInfo.fileName">
+      {{fileInfo.fileName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<div #takeHtml id="result1" ></div>  
+
+<!-- <input type="file" onchange="parseWordDocxFile(this)">
+<input type="file" (change)="onFileSelectionTest($event)"> -->
+
+<!-- <div>HTML:</div>  -->
+<!-- <div #takeHtml id="result1"></div> -->
+<!-- <div [innerHTML]="htmlStr">
+</div> -->
+<!-- <div>{{htmlStr}}</div> -->
+<!-- <div class="example-element-description" 
+    [innerHtml]="getContactByTradingPartnerId(element.tradingPartnerId)">
+</div> -->

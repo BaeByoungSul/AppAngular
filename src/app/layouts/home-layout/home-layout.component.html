@@ -1,0 +1,24 @@
+<div class="top-container" fxLayout="column"  fxFlexFill >
+    <app-header fxFlex="none" (toggleEvent)="sidenavToggle($event)" ></app-header>
+    <mat-sidenav-container fxFlex="100%" >
+        <mat-sidenav [mode]="mdq.matches ? 'over' : 'side'"
+            opened="{{open}}" >
+            <app-menu-list></app-menu-list>
+        </mat-sidenav>
+        <mat-sidenav-content  >
+            <app-alert></app-alert>
+            <router-outlet></router-outlet>
+                <!-- <div fxFlex="100%" style="padding: 10px; background-color: aqua;"></div> -->
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+    <!-- <mat-sidenav-container fxFlex="100%" fxLayout="row" fxFlexFill>
+        <mat-sidenav fxFlex="none" mode="side" opened="{{open}}">
+            <app-menu-list></app-menu-list>
+        </mat-sidenav>
+        <mat-sidenav-content class="content-container" fxFlex="100%" >
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container> -->
+
+    <app-footer fxFlex="none" ></app-footer>
+ </div>

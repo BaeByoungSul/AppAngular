@@ -1,0 +1,64 @@
+<mat-toolbar color="primary"  >
+    <button mat-icon-button 
+            (click)="menuIconClick()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>낙동강</span>
+    <span class="example-spacer"></span>
+  
+    <button mat-button [matMenuTriggerFor]="menu">Main Role({{authService.getSelectedMainRole()}})</button>
+    <mat-menu #menu="matMenu">
+      <!-- <button mat-menu-item 
+            *ngFor="let item of currentUser.mainRoles">
+        {{item}}
+      </button> -->
+      <button mat-menu-item
+            *ngFor="let item of authService.getMainRoles()"
+            (click)="clickMainRole(item)">
+        {{item}}
+      </button>
+      <!-- <button mat-menu-item >11111</button> -->
+    </mat-menu>
+ 
+    <button mat-button [matMenuTriggerFor]="menu2">Role({{authService.getSelectedRole()}})</button>
+    <mat-menu #menu2="matMenu">
+        <button mat-menu-item 
+            *ngFor="let item of authService.getRoles()"
+            (click)="clickSubRole(item)">
+          {{item}}
+        </button>     
+    </mat-menu>
+  
+
+    <span class="span-expiry" *ngIf="authService.isLoggedIn()">
+      {{authService.getExpiry()}}
+    </span>    
+    <button mat-flat-button color="primary" 
+          *ngIf="!authService.isLoggedIn() && !authService.isRefreshTokenValid()"
+          routerLink="/auth/login">Login
+      <mat-icon>login</mat-icon>
+    </button>
+    <button mat-flat-button color="primary" 
+        *ngIf="!authService.isLoggedIn() && authService.isRefreshTokenValid()"
+        (click)="refreshLogin()">
+        Refresh
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <button mat-flat-button color="primary"
+          *ngIf="authService.isLoggedIn() || authService.isRefreshTokenValid()"
+          (click)="authService.logout()">Logout
+      <mat-icon>logout</mat-icon>
+    </button>
+  
+    
+    <!-- <button mat-raised-button routerLink="/login" *ngIf="!authService.isLoggedIn()">Login</button>
+    <button mat-raised-button color="warn" *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Logout</button> -->
+    
+    <!-- <button mat-flat-button color="primary" 
+            routerLink="/home/sign-in3">Login
+      <mat-icon>login</mat-icon>
+    </button> -->
+
+
+  </mat-toolbar>
+

@@ -1,0 +1,148 @@
+<!-- Home, 개발공부 메뉴목록 -->
+<mat-nav-list>
+    <mat-list-item  [routerLink]="'/home-dashboard'">
+        <div class="icon-div" >
+            <mat-icon>dashboard</mat-icon>
+            <span class="icon-text">Home Dashboard</span>
+        </div>
+    </mat-list-item>
+
+    <mat-expansion-panel [(expanded)]="panelOpenState" [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>        
+            개발공부기록(docx)
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="['/study/fileview','android']"> 
+                <div class="icon-div">
+                    <mat-icon>android</mat-icon>
+                    <span class="icon-text">android</span>
+                </div>
+            </a>
+            <a mat-list-item [routerLink]="['/study/fileview','angular']">
+                Angular 
+            </a>
+            <a mat-list-item [routerLink]="['/study/fileview','netapi']">
+                ASP.NET Core Web Api 
+            </a>
+            <a mat-list-item [routerLink]="['/study/fileview','wcf']">
+                WCF 
+            </a>
+            <a mat-list-item [routerLink]="['/study/fileview','xamarin']">
+                Xamarin
+            </a>
+        </mat-nav-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel expanded="false" [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>        
+            개발공부기록(pdf)
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="['/study/filepdfview','android']">
+                <div class="icon-div">
+                    <mat-icon>android</mat-icon>
+                    <span class="icon-text">android</span>
+                </div>
+            </a>
+            <a mat-list-item [routerLink]="['/study/filepdfview','angular']">
+                Angular 
+            </a>
+            <a mat-list-item [routerLink]="['/study/filepdfview','netapi']">
+                ASP.NET Core Web Api 
+            </a>
+            <a mat-list-item [routerLink]="['/study/filepdfview','wcf']">
+                WCF 
+            </a>
+            <a mat-list-item [routerLink]="['/study/filepdfview','xamarin']">
+                Xamarin
+            </a>
+        </mat-nav-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel expanded="false" [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>        
+            테스트 화면
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="'/mytest/dbview01'">
+                <mat-icon>android</mat-icon><span>데이터조회</span>
+            </a>
+            <a mat-list-item [routerLink]="'/mytest/sapstock'">
+                <mat-icon>android</mat-icon><span>SAP재고조회</span>
+            </a>
+            <a mat-list-item [routerLink]="'/mytest/googlemap'">
+                <mat-icon>android</mat-icon><span>구글맵 테스트</span>
+            </a> 
+            <a mat-list-item [routerLink]="'/mytest/authtest'">
+                <mat-icon>android</mat-icon><span>Authorize 테스트</span>
+            </a>
+            <a mat-list-item [routerLink]="'/mytest/charttest'">
+                <mat-icon>android</mat-icon><span>Chart 테스트</span>
+            </a>                        
+        </mat-nav-list>
+    </mat-expansion-panel>
+</mat-nav-list>
+
+<!-- 혜주 -->
+<mat-nav-list *ngIf="authService.getSelectedMainRole() == 'Huizhou'"  >
+    <mat-list-item  [routerLink]="'/huizhou/huizhou-dashboard'">
+        <div class="icon-div">
+            <mat-icon>dashboard</mat-icon>
+            <span class="icon-text">Huizhou Dashboard</span>
+        </div>
+    </mat-list-item>    
+    <mat-expansion-panel expanded="true" [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+            DB조회
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="'/huizhou/huizhou01'" >
+                <div class="icon-div">
+                    <mat-icon>favorite_border</mat-icon><span>화면1</span>                
+                </div>
+            </a>
+            <a mat-list-item [routerLink]="'/huizhou/huizhou02'">
+                <div class="icon-div">
+                    <mat-icon>favorite_border</mat-icon><span>화면2</span>
+                </div>
+            </a>
+    
+            <a mat-list-item [routerLink]="'/huizhou/huizhou03'">
+                <div class="icon-div">
+                    <mat-icon>favorite_border</mat-icon><span>화면3</span>
+                </div>
+            </a>
+            <a mat-list-item [routerLink]="'/huizhou/huizhou04'">
+                <div class="icon-div">
+                    <mat-icon>favorite_border</mat-icon><span>화면4</span>
+                </div>
+                
+            </a>
+        </mat-nav-list>
+    </mat-expansion-panel>
+    
+</mat-nav-list>
+
+<!-- 파일관리 -->
+<mat-nav-list  >
+    <mat-expansion-panel expanded="true" [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+            <div class="icon-div">
+                <mat-icon>sync_alt</mat-icon>
+                <span class="icon-text">파일관리</span>
+            </div>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <a class="an" mat-list-item [routerLink]="'/file/file-upload'">
+                <div class="icon-div">
+                    <mat-icon>uploadFile</mat-icon><span>Upload file</span>
+                </div>
+            </a>
+            <a mat-list-item [routerLink]="'/file/file-download'">
+                <div class="icon-div">
+                    <mat-icon>downloadFile</mat-icon><span>Download file</span>
+                </div>
+            </a>
+        </mat-nav-list>
+    </mat-expansion-panel>  
+</mat-nav-list>
+        
+        

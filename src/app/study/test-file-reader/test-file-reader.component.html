@@ -1,0 +1,8 @@
+<div class="actions">
+	<button style="margin-right:10px" (click)="selectDocumentType('doc')">Doc</button>
+	<button style="margin-right:10px" (click)="selectDocumentType('xl')">Excel</button>
+	<button  (click)="selectDocumentType('ppt')">PPT</button>
+</div>
+<div class="office-viewer">
+	<iframe [src]='urlSafe' width='100%' height='100%' frameborder='0'></iframe>
+</div>

@@ -1,0 +1,20 @@
+<div fxLayout="column"  fxFlexFill >
+    <div fxFlex="none" class="first-div">
+      <app-dir-list (getDirInfoEvent)="receiveDirInfo($event)"></app-dir-list>
+    </div>
+    <div fxFlex="100%">
+      <app-file-list2 [dataSource]="dataSource" (outputSelection)="receiveSelection($event)">
+
+      </app-file-list2>
+    </div>
+    <div fxFlex="60px" 
+        fxLayout="row" 
+        fxLayoutAlign="start center" >
+      <button  mat-raised-button color="primary" class="tab1-row-item"
+              (click)="downloadFile()">Download
+        <mat-icon>cloud_download</mat-icon>
+      </button>
+      <mat-progress-bar *ngIf="progress > 0" 
+        mode= "determinate" [value]="progress"> </mat-progress-bar>
+    </div>
+</div>    

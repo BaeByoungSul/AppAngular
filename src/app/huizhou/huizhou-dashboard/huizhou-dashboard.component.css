@@ -1,0 +1,15 @@
+.grid-item{
+    /* background-color: lightsalmon; */
+    border-radius: 5px;
+    min-width: 300px;
+    height: 300px;
+    margin: 5px;
+}
+
+/* .mycard-div {
+    background-color: bisque;
+}
+app-card-view{
+    height: 100%;
+    width: 100%;
+} */

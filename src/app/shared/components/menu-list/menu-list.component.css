@@ -1,0 +1,16 @@
+mat-icon {
+    vertical-align: middle;
+    /* background-color: gray; */
+    margin-right: 0.2rem;  /*메뉴에 아이콘 텍스트 마진을 줌 */
+}
+.icon-div {
+    /* background-color: aquamarine; */
+    display: flex;
+    align-items: center;
+}
+
+/* .icon-text {
+    margin-left: 0.2rem;
+} */
+
+

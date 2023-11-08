@@ -1,0 +1,74 @@
+
+<div fxLayout="column">
+    <div fxFlex fxLayout="row wrap" >
+        <!-- <div fxFlex  *ngFor="let item of cards"
+            class="grid-item">
+            <app-card-view fxLayout="row"
+                background="{{item.cardBackground}}">{{item.cardTitle}}
+            </app-card-view>
+        </div> -->
+
+        <app-card-view fxFlex *ngFor="let item of cards"
+            class="grid-item" fxLayout="row" 
+            background="{{item.cardBackground}}">{{item.cardTitle}}
+        </app-card-view>
+    </div>
+    <!-- <div fxFlex fxLayout="row wrap">
+        <div fxFlex class="grid-item" >
+            <canvas id="myChart"></canvas>
+        </div>
+        <div fxFlex class="grid-item">
+              <canvas id="myChart2"></canvas>
+        </div>
+    </div> -->
+    <div fxFlex fxLayout="row wrap" >
+        <div fxFlex class="grid-item" >
+            <canvas id="myChart"></canvas>
+        </div>
+        <div fxFlex class="grid-item">
+              <canvas id="myChart2"></canvas>
+        </div>
+    </div>
+
+    <div fxFlex class="grid-item" >
+        <app-table-filter></app-table-filter>
+    </div>
+</div>
+
+
+<!-- <div fxLayout="column" 
+    fxLayoutGap="10px"
+    fxFlexFill>
+    <div fxFlex="33%"  class="mycard-div" 
+        fxLayout="row wrap" 
+        fxLayoutGap="10px"
+        fxFlex.lt-lg="column">
+        <ng-container *ngFor="let item of cards" >
+            <app-card-view 
+                fxFlex="0 1 calc(25%-10px)"
+                fxFlex.lt-lg="100%"
+                background="{{item.cardBackground}}">{{item.cardTitle}}
+            </app-card-view>
+        </ng-container>
+    </div>
+
+    <div fxFlex="34%" 
+        fxLayout ="row "
+        fxLayoutGap="10px">
+        <div class="chart-container"  fxFlex="50%"
+            style="height:100%;  background-color:white">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="chart-container" fxFlex="50%"
+            style="height:100%; background-color:white">
+            <canvas id="myChart2"></canvas>
+        </div>
+    </div>
+    <div fxFlex="33%" >
+        <app-table-filter></app-table-filter>
+    </div>
+</div> -->
+
+
+
+

@@ -1,0 +1,38 @@
+
+<div class="top-container" fxLayout="column" fxFlexFill >
+    <app-header fxFlex="none"></app-header>
+    <mat-sidenav-container fxFlex="100%" fxLayout="row" fxFlexFill 
+            style="background-color: rgb(118, 227, 140)">
+        <mat-sidenav fxFlex="none" fxLayout="column" mode="side"  opened
+            style="padding: 5px;">
+            <app-menu-list></app-menu-list>
+            <!-- <div fxLayout="column">
+                <a mat-button routerLink="/about">About us..</a>
+                <a mat-button routerLink="/prices">Prices</a>
+                <a mat-button routerLink="/start-page">Start page</a>
+                <a mat-button routerLink="/offer">Offer</a>
+                <a mat-button routerLink="/contact">Contact</a>
+            </div> -->
+        </mat-sidenav>
+        <mat-sidenav-content fxFlex="100%">
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <footer fxFlex="none" style="background-color: burlywood;" >4</footer>
+ </div>
+
+
+
+<!-- 첫번째 -->
+<!-- <div fxLayout="column"  >
+    <div fxFlex="none" style="background-color:aqua;" >1</div>
+    <div fxFlex="100%" fxLayout="row" style="background-color:blue;">
+        <div fxFlex="20%" style="background-color: bisque;">a</div>
+        <div fxFlex="80%">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <footer fxFlex="none" >4</footer>
+ </div> -->
+

@@ -1,0 +1,47 @@
+<div fxLayout="column" >
+  <div fxFlex fxLayout="row wrap" class="container">
+    <!-- <div fxFlex  *ngFor="let i of [1, 2, 3, 4]">
+      <div class="grid-item" fxLayout="row" fxLayoutAlign="center center">
+        {{ 'Item ' + i }}
+        
+      </div>
+    </div> -->
+    
+      <app-card-view fxFlex *ngFor="let item of cards"
+          class="grid-item" fxLayout="row" 
+          background="{{item.cardBackground}}">{{item.cardTitle}}
+      </app-card-view>
+    
+
+    <!-- <div fxFlex *ngFor="let item of cards">
+      <app-card-view 
+          class="grid-item" fxLayout="row" 
+          background="{{item.cardBackground}}">{{item.cardTitle}}
+      </app-card-view>
+    </div> -->
+    
+    <!-- <ng-container fxFlex *ngFor="let item of cards" >
+      <app-card-view 
+          class="grid-item" fxLayout="row" 
+          background="{{item.cardBackground}}">{{item.cardTitle}}
+      </app-card-view>
+    </ng-container> -->
+  </div>
+  <div fxFlex fxLayout="row wrap" class="container">
+    <div fxFlex class="grid-item" >
+        <canvas id="myChart"></canvas>
+    </div>
+    <div fxFlex class="grid-item">
+          <canvas id="myChart2"></canvas>
+    </div>
+  </div>
+  <div fxFlex class="grid-item" >
+    <app-table-filter></app-table-filter>
+    <!-- <div fxFlex *ngFor="let i of [1]">
+      <div class="grid-item" fxLayout="row" fxLayoutAlign="center center">
+        {{ 'Item ' + i }}
+      </div>
+    </div>
+   -->
+  </div>
+</div>

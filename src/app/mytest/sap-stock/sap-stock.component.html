@@ -1,0 +1,44 @@
+<mat-accordion  >
+  <mat-expansion-panel expanded="true"  >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        조회조건
+      </mat-panel-title>
+      <mat-panel-description>
+        조회조건을 입력하세요
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" hideRequiredMarker="false"  >
+        <mat-label>Plant</mat-label>
+        <input matInput formControlName="plant" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" >
+        <mat-label>창고코드</mat-label>
+        <input matInput formControlName="lgorts" required>
+      </mat-form-field>
+      <mat-form-field  appearance="outline" [style.width.px]="400">
+        <mat-label>자재번호</mat-label>
+        <input matInput formControlName="matnrs"  >
+      </mat-form-field>
+      <button mat-flat-button color="primary">Search</button>
+  
+    </form>
+    
+  </mat-expansion-panel>
+ 
+</mat-accordion>
+<p></p>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns; let i=index">
+    <th mat-header-cell *matHeaderCellDef>{{ displayedColumns2[i] }}</th>
+    <td mat-cell *matCellDef="let stock">{{ stock[column] }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let rowData; columns: displayedColumns"></tr>
+</table>
+<mat-paginator #paginator pageSize="10" [pageSizeOptions]="[5,10, 15]" showFirstLastButtons></mat-paginator>
+
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>

@@ -1,0 +1,10 @@
+<!-- <div *ngIf="apiLoaded | async" style="width: 100%; height: 100%;"    >
+    <google-map  [center]="center"
+            [zoom]="zoom"
+            height="100%" width="100%"></google-map>
+</div> -->
+
+<div *ngIf="apiLoaded | async" style="width: 100%; height: 100%;"    >
+    <google-map  [options]="options"
+            height="100%" width="100%"></google-map>
+</div>
