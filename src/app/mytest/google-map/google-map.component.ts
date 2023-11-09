@@ -2,6 +2,7 @@ import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-google-map',
@@ -9,7 +10,9 @@ import { catchError, map } from 'rxjs/operators';
   styleUrls: ['./google-map.component.css']
 })
 export class GoogleMapComponent implements OnInit{
-  apiKey: string = 'AIzaSyBb5jBpNLfyeBqj_tjhB1r4sexvqUVZx6s'
+  
+  apiKey: string = environment.googleMapKey;
+  
   apiLoaded: Observable<boolean>;
 
   options: google.maps.MapOptions = {
