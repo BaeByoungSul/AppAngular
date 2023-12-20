@@ -7,7 +7,7 @@
 
 export const environment = {
     production: true,
-    baseUrl:"https://172.17.0.236:7896",
+    baseUrl:"http://172.20.105.34:7896",
     googleMapKey:"AIzaSyBb5jBpNLfyeBqj_tjhB1r4sexvqUVZx6s"
 }
 

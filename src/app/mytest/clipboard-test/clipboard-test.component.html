@@ -1,0 +1,27 @@
+<label for="name">붙여넣기 컬럼수:</label>
+<input id="name" type="number"  min="0" max="30" value="0" 
+  style="font-size: 20px;"
+  (change)="onChange($event)"/>
+<p></p>
+<div style="border:solid;height:70px"
+  (paste)="clipTest($event)">
+  paste area
+</div>
+<!-- <div>{{val}}</div> -->
+<div>
+  <p></p>
+  <button mat-raised-button [cdkCopyToClipboard]="copyData()">Copy Table To Clipboard(Json)</button> 
+  <span style='margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+  <button mat-raised-button (click)="copyTable()">Copy Table To Clipboard</button>
+  <p></p>
+  <button mat-raised-button (click)="onQueryDb()">조회 테스트</button>
+</div>
+
+ <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell style="white-space: pre-line" *matCellDef="let element"> {{element[column]}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> 

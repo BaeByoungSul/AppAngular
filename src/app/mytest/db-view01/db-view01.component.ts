@@ -15,6 +15,7 @@ import { LoadingService } from 'src/app/_service/loading.service';
 })
 export class DbView01Component implements AfterViewInit {
   loading$ = this._loader.loading$;
+  
   form = new FormGroup({
     yymm: new FormControl("", Validators.required),
     plant: new FormControl("", Validators.required),

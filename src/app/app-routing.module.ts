@@ -12,6 +12,7 @@ import { DbView01Component } from './mytest/db-view01/db-view01.component';
 import { GoogleMapComponent } from './mytest/google-map/google-map.component';
 import { WeatherComponent } from './mytest/weather/weather.component';
 import { ChartTestComponent } from './mytest/chart-test/chart-test.component';
+import { ClipboardTestComponent } from './mytest/clipboard-test/clipboard-test.component';
 
 
 
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path:'mytest/googlemap', component: GoogleMapComponent},
       { path:'mytest/authtest', component: WeatherComponent},
       { path:'mytest/charttest', component: ChartTestComponent},
+      { path:'mytest/clipboardtest', component: ClipboardTestComponent},
       { path:'stduy2/fileview/:id', component: FileViewerComponent},
       { path: '', redirectTo:'home-dashboard', pathMatch:'full'  },
        {path:'forbidden/:id', component: ForbiddenComponent},

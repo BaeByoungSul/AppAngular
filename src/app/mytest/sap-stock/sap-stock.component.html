@@ -15,12 +15,17 @@
       </mat-form-field>
       <mat-form-field appearance="outline" >
         <mat-label>창고코드</mat-label>
-        <input matInput formControlName="lgorts" required>
+        <input matInput formControlName="lgorts" >
       </mat-form-field>
       <mat-form-field  appearance="outline" [style.width.px]="400">
         <mat-label>자재번호</mat-label>
         <input matInput formControlName="matnrs"  >
       </mat-form-field>
+      <mat-form-field  appearance="outline" [style.width.px]="200">
+        <mat-label>배치번호</mat-label>
+        <input matInput formControlName="chargs"  >
+      </mat-form-field>
+      
       <button mat-flat-button color="primary">Search</button>
   
     </form>

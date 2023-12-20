@@ -24,7 +24,9 @@ export class SapStockComponent implements AfterViewInit {
   form = new FormGroup({
     plant: new FormControl("", Validators.required),
     lgorts: new FormControl("", Validators.required),
-    matnrs: new FormControl("")
+    //lgorts: new FormControl(""),
+    matnrs: new FormControl(""),
+    chargs: new FormControl("")
   });
 
   dataSource = new MatTableDataSource();
@@ -48,7 +50,8 @@ export class SapStockComponent implements AfterViewInit {
     body: {
       twerks: [],
       tlgort: [],
-      tmatnr: []
+      tmatnr: [],
+      tcharg: []
     }
 
   }
@@ -85,11 +88,13 @@ export class SapStockComponent implements AfterViewInit {
     this.currentReq?.body?.twerks?.splice(0)
     this.currentReq?.body?.tlgort?.splice(0)
     this.currentReq?.body?.tmatnr?.splice(0)
-    
+    this.currentReq?.body?.tcharg?.splice(0)
+       
 
     var splitPlant = this.form.get('plant')?.value?.split(' ');
     var splitLgort = this.form.get('lgorts')?.value?.split(' ')
     var splitMatnr = this.form.get('matnrs')?.value?.split(' ');    
+    var splitCharg = this.form.get('chargs')?.value?.split(' ');    
 
     //this.currentReq?.body?.twerks?.push({ werks: plant! })
     splitPlant?.forEach((plant) => {
@@ -101,7 +106,9 @@ export class SapStockComponent implements AfterViewInit {
     splitMatnr?.forEach((matnr) => {
       this.currentReq?.body?.tmatnr?.push({ matnr: matnr })
     })
-    
+    splitCharg?.forEach((charg) => {
+      this.currentReq?.body?.tcharg?.push({ charg: charg })
+    })
     // const json4 = JSON.stringify(this.currentReq);
     // console.log(json4);
 
@@ -149,7 +156,6 @@ export class SapStockComponent implements AfterViewInit {
     this.currentReq?.body?.tlgort?.splice(0)
     this.currentReq?.body?.tmatnr?.splice(0)
     
-      
 
       var splitPlant = this.form.get('plant')?.value?.split(' ');
       var splitLgort = this.form.get('lgorts')?.value?.split(' ')

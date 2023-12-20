@@ -12,6 +12,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
@@ -22,6 +23,7 @@ import { DbView01Component } from './db-view01/db-view01.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { WeatherComponent } from './weather/weather.component';
 import { ChartTestComponent } from './chart-test/chart-test.component';
+import { ClipboardTestComponent } from './clipboard-test/clipboard-test.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ChartTestComponent } from './chart-test/chart-test.component';
     DbView01Component,
     GoogleMapComponent,
     WeatherComponent,
-    ChartTestComponent
+    ChartTestComponent,
+    ClipboardTestComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +49,7 @@ import { ChartTestComponent } from './chart-test/chart-test.component';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatCardModule,
+    ClipboardModule,
     FlexLayoutModule,
     GoogleMapsModule,
     HttpClientModule,
