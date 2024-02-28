@@ -1,0 +1,73 @@
+.top-container{
+    display: flex;
+    flex-direction: column ;
+    /* flex-wrap: nowrap; */
+    /* align-items: stretch; */
+    gap : 5px;
+
+    height: 99%;
+    /* width: 99%;
+    height: 98%; */
+    padding: 3px;
+    /* margin: 5px; */
+
+}
+.card-container, .chart-container, .table-container {
+    flex-grow: 1;
+    min-width: 1400px;
+    min-height: 270px;
+    padding: 1px;
+
+    border: 1px solid lightblue;
+    border-radius: 3px;
+    display: flex;
+    flex-flow: row;
+    justify-content: start;
+    gap: 5px;
+}
+.card-container > app-board {
+    flex: 1 0 auto;
+    min-width: 315px;
+    /* height: 270px;  */
+}
+.card-container > app-board1 {
+    flex: 1 0 auto;
+    /* width: 315px;*/
+    /* height: 270px;  */
+    /* background-color: aqua; */
+    width: 24%;
+    height: 100%;
+    box-sizing: border-box;
+    /* box-sizing: content-box; */
+}
+.chart-container > div{
+    flex: 1 0 auto;
+    /* width: 630px; */
+    /* height: 270px;  */
+    /* background-color: aqua; */
+    width: 49%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+.table-container > app-board-table{
+    flex: 1 0 auto;
+    /* width: 630px; */
+    /* height: 270px;  */
+    /* background-color: aqua; */
+    width: 99%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+
+
+/* .example-card {
+    max-width: 400px;
+    max-height: 270px;
+    margin-bottom: 8px;
+    background-color: aqua;
+  } */
+

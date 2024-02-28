@@ -1,0 +1,94 @@
+<div class="top-container">
+    <div class="dirPath-group">
+        <button mat-raised-button class="btn_width" color="primary" (click)="folderClick(-1)">File
+            <mat-icon>home</mat-icon>
+        </button>
+        <button mat-stroked-button color="primary"
+            *ngFor="let folder of serverfolders;let i = index" (click)="folderClick(i)">
+            {{folder}}
+        </button>  
+        <span class="spacer"></span>
+        <mat-icon class="pointer" (click)="openNewFolderDialog()">create_new_folder</mat-icon>
+    </div>
+    <p></p> 
+    <div class="dirList-group">
+        
+        <button mat-button *ngFor="let folder of listFolder" (click)="subfolderClick(folder)" >
+            <span [matMenuTriggerFor]="folderMenu" [matMenuTriggerData]="{folder}" #menuTrigger2 ="matMenuTrigger"></span>
+            <div style="display: flex; flex-direction: row;"
+                (contextmenu)="openMenu($event, folder, menuTrigger2)"> 
+                <mat-icon [ngStyle]="{'color':'gold'}" class="pointer">folder</mat-icon>    
+                <div style="display: flex; flex-direction: column;">
+                    <span>{{folder.dirName}}</span>
+                    <div>{{folder.updated | date}}</div>
+                </div>
+            </div>
+            <!-- <mat-icon [ngStyle]="{'color':'gold'}">folder</mat-icon>
+            <span>{{folder.dirName}}</span>
+            <div>{{folder.updated | date}}</div> -->
+        </button>
+     </div>
+     <p></p>
+    <div class="file-group">
+        <mat-tab-group [selectedIndex]="2" mat-stretch-tabs>
+            <mat-tab label="First tab">
+                <app-file-list1 [dataSource]="dataSource2"
+                    (outputSelection)="receiveSelection($event)">
+                </app-file-list1>
+                <!-- <app-file-list2 [dataSource]="dataSource">
+                </app-file-list2>        -->
+
+            </mat-tab>
+            <mat-tab label="Second tab">
+                <app-file-list2 [dataSource]="dataSource">
+                </app-file-list2>       
+            </mat-tab>
+            <mat-tab  label="Third tab"  >
+                <div class="tab3-group" >
+                    <div class="tab3-group-item-loop" 
+                        *ngFor=" let item of this.dataSource.data ">
+                        <span [matMenuTriggerFor]="rootMenu" [matMenuTriggerData]="{item}" #menuTrigger="matMenuTrigger"></span>
+                        
+                        <div class="pointer" style="display: flex; flex-direction: row;"
+                             (contextmenu)="openMenu($event, item, menuTrigger)"> 
+                            <mat-icon color="primary" class="file-icon">insert_drive_file</mat-icon>    
+                            <div style="display: flex; flex-direction: column;">
+                                <span>{{item.fileName}}</span>
+                                <div>{{item.fileSize}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </mat-tab>
+          </mat-tab-group>
+
+    </div>
+</div>
+
+
+<mat-menu #folderMenu="matMenu" [overlapTrigger]="false">
+    <ng-template matMenuContent let-element="folder">
+        <button mat-menu-item (click)="deleteFolder(element)">
+            <mat-icon>delete</mat-icon>
+            <span>Delete Folder</span>
+          </button>
+    </ng-template>
+</mat-menu>
+
+<mat-menu #rootMenu="matMenu" [overlapTrigger]="false">
+    <ng-template matMenuContent let-element="item">
+      <!-- <button mat-menu-item [matMenuTriggerFor]="moveToMenu" [matMenuTriggerData]="{self: element}">
+        <mat-icon>open_with</mat-icon>
+        <span>Move To</span>
+      </button> -->
+      <button mat-menu-item (click)="openRenameDialog(element)">
+        <mat-icon>edit</mat-icon>
+        <span>Rename</span>
+      </button>
+      <button mat-menu-item (click)="deleteElement(element)">
+        <mat-icon>delete</mat-icon>
+        <span>Delete</span>
+      </button>
+    </ng-template>
+</mat-menu>

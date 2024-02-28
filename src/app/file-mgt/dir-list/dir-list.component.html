@@ -1,0 +1,68 @@
+<div class="top-container">
+    <div class="dirPath-group">
+        <button mat-raised-button class="btn_width" color="primary" 
+                (click)="folderClick(-1)">File home
+            <mat-icon>home</mat-icon>
+        </button>
+        <button mat-raised-button style="background-color: #155724;color: white;"
+            *ngFor="let folder of queryDirPath;let i = index" (click)="folderClick(i)">
+            {{folder}}
+        </button>  
+        <span class="spacer"></span>
+              
+        <mat-icon class="pointer" style="align-self: center;" *ngIf="newFolderVisible" (click)="openNewFolderDialog()">
+            create_new_folder
+        </mat-icon>
+    </div>
+    <p></p>
+    <div class="dirList-group">
+        <button mat-button *ngFor="let folder of dirList" (click)="subfolderClick(folder)" >
+            <span></span>
+            <div style="display: flex; flex-direction: row;" 
+                [cdkContextMenuTriggerFor]="folderMenu"
+                [cdkContextMenuTriggerData]="{folder}"> 
+                <mat-icon [ngStyle]="{'color':'gold'}" class="pointer">folder</mat-icon>    
+                <div style="display: flex; flex-direction: column;">
+                    <span>{{folder.dirName}}</span>
+                    <div>{{folder.updated | date}}</div>
+                </div>
+            </div>
+            <!-- <mat-icon [ngStyle]="{'color':'gold'}">folder</mat-icon>
+            <span>{{folder.dirName}}</span>
+            <div>{{folder.updated | date}}</div> -->
+        </button>
+    </div>
+
+</div>
+
+
+<ng-template #folderMenu let-paraFolder="folder">
+    <div class="example-menu" cdkMenu>
+        <!-- {{paraFolder | json}} -->
+      <button mat-raised-button class="example-menu-item" 
+       cdkMenuItem 
+      (cdkMenuItemTriggered)="deleteFolder(paraFolder)">
+      <mat-icon>delete</mat-icon>
+      <span>Delete Folder</span>
+        </button>
+      <!-- <button class="example-menu-item" cdkMenuItem>Copy</button>
+      <button class="example-menu-item" cdkMenuItem>Link</button> -->
+    </div>
+</ng-template>
+
+<!-- <mat-menu #folderMenu="matMenu" [overlapTrigger]="false">
+    <ng-template matMenuContent let-element="folder">
+        <button mat-menu-item (click)="deleteFolder(element)">
+            <mat-icon>delete</mat-icon>
+            <span>Delete Folder</span>
+          </button>
+    </ng-template>
+</mat-menu> -->
+<!-- <p></p>
+<p>Server Folder Path:
+    <span *ngFor="let item of queryDirPath" >{{item}} / </span>
+</p>
+
+<p>List Of Folder:
+    <span *ngFor="let item of dirList" >{{item.dirName}} / </span>
+</p> -->

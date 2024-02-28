@@ -1,0 +1,103 @@
+.top-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+.dirPath-group {
+    /* background-color: antiquewhite; */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 3px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+.dirList-group{
+    /* background-color:chartreuse; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 20px;
+   
+}
+/* .dirList-group > div:first-child { */
+.dirList-group  div {
+    /* background-color:crimson; */
+    
+    /* width: 150px;
+    height: 50px;
+     */
+    border: 1 solid lightgray;
+    border-radius: 5px;
+}
+.dirList-group  mat-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+}
+.dirList-group  span {
+    font-size: medium;
+}
+
+.file-group {
+    /* background-color: aquamarine; */
+    align-self: stretch;
+    border: 1px solid lightgray;
+}
+.file-group3  mat-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+}
+.spacer {
+    flex: 1 1 auto;
+}
+
+/* flex item : div ( tab3-group-item-loop ) */
+.tab3-group {
+    display: flex;
+    flex-wrap: wrap; 
+    /* flex-direction: row ;
+    flex-wrap:  wrap;
+    gap: 10px; */
+
+    /* background-color:aqua; */
+    margin-top: 20px;
+    gap: 50px;
+    
+ } 
+
+ /* flex item : span ( menu match ), div ( file desc) */
+.tab3-group-item-loop {
+    display: flex; 
+    flex-direction: row;
+}
+ /* flex item : filename, filesize */
+/* .tab3-group-file-desc {
+    display: flex; 
+    flex-direction: column; 
+} */
+
+/* style="color: green; font-size: 44px; width: 44px; height: 44px; margin-left: 1rem;" */
+/* .tab3-group div {
+    background-color: bisque;
+    width: 152px;
+    height: 112px;
+ } */
+.file-icon {
+    /* color: green;  */
+    /* font-size: 44px; 
+    width: 44px; 
+    height: 44px; 
+    margin-left: 1rem; */
+
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    margin-left: 1rem;
+  }
+  .pointer {
+    cursor: pointer;
+  }  

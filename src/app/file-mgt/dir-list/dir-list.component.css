@@ -1,0 +1,42 @@
+.top-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    padding: 3px;
+    border: 1px solid lightblue;
+}
+.dirPath-group {
+    /* background-color: antiquewhite; */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 3px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+.dirList-group{
+    /* background-color:chartreuse; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 20px;
+    min-height: 40px;
+   
+}
+.upload-group{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 3px;
+    border: 1px solid lightgrey;
+}
+.spacer {
+    flex: 1 1 auto;
+}
+
+.pointer {
+    cursor: pointer;
+}  

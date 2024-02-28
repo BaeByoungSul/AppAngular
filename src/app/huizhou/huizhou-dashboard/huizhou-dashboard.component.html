@@ -1,0 +1,29 @@
+<div>Huizhou Dashboard Example</div>
+<div class="top-container" >
+    <div class="card-container">
+        <!-- <app-board-card class="card-item"
+            *ngFor="let item of cards" background="{{item.cardBackground}}">
+            {{item.cardTitle}}
+        </app-board-card>  -->
+        <!-- Cards with media area -->
+
+        <app-board-card class="card-item" 
+        *ngFor="let item of cards" background="{{item.cardBackground}}">
+        {{item.cardTitle}}
+        </app-board-card> 
+    </div>
+    <div class="chart-container"  >
+      
+        <div>
+            <canvas id="huizhou-dashboard_1"></canvas>
+        </div>
+        <div>
+            <canvas id="huizhou-dashboard_2"></canvas>
+        </div>
+    </div>
+    <div class="table-container" >
+        
+            <app-board-table></app-board-table>
+        
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="top-container">
+    <!-- (fileToUpload)="upLoadFile($event)" -->
+    <app-dir-list 
+        [queryDirPath]="queryDirPath" 
+        [dirList]="dirList" 
+        (navigateFolder)="queryInFolder($event)"
+        (folderAdd)="addFolder($event)"
+        (folderDelete)="deleteFolder($event)"/>
+    
+    <!-- <button mat-button class="file-upload-button">
+        <input type="file" [multiple]="true"
+        #fileInput (change)="onFileSelect(fileInput)"
+        />
+    </button> -->
+    <!-- <span class="file-info">{{ fileInfo }}</span> -->
+    <div class="upload-group">
+        <div >
+            <mat-slide-toggle  [(ngModel)]="_multiple" >Multiple</mat-slide-toggle>
+          </div>
+        <!--  -->
+        <input #fileInput hidden (change)="onFileSelect($event)"     
+                type="file" [multiple]="_multiple">
+
+        <button  mat-raised-button color="primary" (click)="fileInput.click()">Choose File
+            <mat-icon>attach_file</mat-icon>
+        </button>
+        <div>Selected Files:
+            <span *ngFor="let item of _selectedFiles">{{item.name}} 
+            <span style="background-color: aqua;">&nbsp;</span>
+            </span>
+        </div> 
+        <span class="spacer"></span>
+        <button  mat-raised-button color="primary" (click)="onUpload()" >Upload
+            <mat-icon>cloud_upload</mat-icon>
+        </button>
+    </div>
+    <p></p>
+    <div *ngIf="progress">
+        <mat-progress-bar mode="determinate" value="{{progress}}"></mat-progress-bar>
+    </div>
+
+    <p></p>
+    <app-file-list 
+        [dataSource]="dataSource"
+        (fileDelete)="deleteFile($event)"
+        (renameFile)="renameFile($event)"/>
+</div>

@@ -1,0 +1,24 @@
+<div class="top-container">
+    <div class="path-container">
+        <button mat-raised-button class="btn_width" color="primary" 
+            (click)="folderPathClick(-1)">File home
+            <mat-icon>home</mat-icon>
+        </button>
+        <button mat-stroked-button color="primary"
+            *ngFor="let folder of queryDirPath;let i = index" (click)="folderPathClick(i)">
+            {{folder}}
+        </button>      
+    </div>
+    <div class="folder-container">
+        <button mat-button *ngFor="let folder of dirList" (click)="subfolderClick(folder)" >
+            <span></span>
+            <div style="display: flex; flex-direction: row;" > 
+                <mat-icon [ngStyle]="{'color':'gold'}" class="pointer">folder</mat-icon>    
+                <div style="display: flex; flex-direction: column;">
+                    <span>{{folder.dirName}}</span>
+                    <div>{{folder.updated | date}}</div>
+                </div>
+            </div>
+        </button>
+    </div>
+</div>

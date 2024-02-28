@@ -1,0 +1,86 @@
+<mat-nav-list *ngIf="authService$.getSelectedMainRole() == 'Common'">
+    <mat-list-item  routerLink="/home">
+        <div class="icon-div" >
+            <mat-icon>dashboard</mat-icon>
+            <span class="icon-text">Home Dashboard</span>
+        </div>
+    </mat-list-item>
+    <mat-list-item  routerLink="/home/view-manual" [skipLocationChange]="true">
+        <div class="icon-div" >
+            <mat-icon>file_copy</mat-icon>
+            <span class="icon-text">메뉴얼 보기</span>
+        </div>
+    </mat-list-item>
+</mat-nav-list>
+
+<!-- 파일관리 -->
+<mat-nav-list *ngIf="authService$.getSelectedMainRole() == 'Common'"  >
+    <mat-expansion-panel expanded="false" [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+            <div class="icon-div">
+                <mat-icon>sync_alt</mat-icon>
+                <span class="icon-text">파일관리</span>
+            </div>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <a class="an" mat-list-item [routerLink]="'/home/file-upload'">
+                <div class="icon-div">
+                    <mat-icon>uploadFile</mat-icon><span>Upload file</span>
+                </div>
+            </a>
+            <a mat-list-item [routerLink]="'/home/file-download'">
+                <div class="icon-div">
+                    <mat-icon>downloadFile</mat-icon><span>Download file</span>
+                </div>
+            </a>
+        </mat-nav-list>
+    </mat-expansion-panel>  
+</mat-nav-list>
+<!-- 개발테스트 -->
+<mat-nav-list *ngIf="authService$.getSelectedMainRole() == 'Common'">
+    <mat-expansion-panel expanded="false" [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>        
+            개발 테스트 화면
+        </mat-expansion-panel-header>
+        <mat-nav-list >
+            
+            <a mat-list-item 
+                *ngFor="let item of devMenu"
+                routerLink="{{item.routePath}}"
+                skipLocationChange="true">
+                <div class="icon-div">
+                    <mat-icon>{{item.iconName}}</mat-icon>
+                    <span>{{item.menuName}}</span>
+                </div>
+            </a>
+        
+        </mat-nav-list>
+    </mat-expansion-panel>
+</mat-nav-list>
+
+<!-- 혜주 -->
+<mat-nav-list *ngIf="authService$.getSelectedMainRole() == 'Huizhou'"  >
+    <mat-list-item  routerLink="/huizhou">
+        <div class="icon-div">
+            <mat-icon>dashboard</mat-icon>
+            <span class="icon-text">Huizhou Dashboard</span>
+        </div>
+    </mat-list-item>    
+    <mat-expansion-panel expanded="true" [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+            혜주 기능
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+
+            <a mat-list-item 
+                *ngFor="let item of huizhoMenu"
+                routerLink="{{item.routePath}}">
+                <div class="icon-div">
+                    <mat-icon>{{item.iconName}}</mat-icon>
+                    <span>{{item.menuName}}</span>
+                </div>
+            </a>
+        </mat-nav-list>
+    </mat-expansion-panel>
+    
+</mat-nav-list>

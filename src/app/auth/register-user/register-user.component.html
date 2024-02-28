@@ -1,0 +1,82 @@
+<div class="top-container">
+    <div class="input-container">
+        <div>Register</div>
+        <form [formGroup]="form" (submit)="onSubmit()">
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter your email" formControlName ="email">
+                @if (form.controls['email'].invalid) {
+                  <mat-error>{{getErrorMsg("email")}}</mat-error>
+                }
+            </mat-form-field>
+            <div class="password-container" formGroupName="passwordGroup">
+                <mat-form-field appearance="outline" floatLabel="always">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password"
+                        placeholder="Enter your password" formControlName="password">
+                    @if (this.form.controls.passwordGroup.controls.password.invalid) {
+                        <mat-error>{{getErrorMsg("passwordGroup.password")}}</mat-error>
+                    }
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline" floatLabel="always">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password"
+                        placeholder="Enter your confirm password" formControlName="confirmPassword">
+                    @if (this.form.controls.passwordGroup.controls.confirmPassword.invalid) {
+                        <mat-error>{{getErrorMsg("passwordGroup.confirmPassword")}}</mat-error>
+                    }
+                </mat-form-field>
+                @if ( this.form.controls.passwordGroup.invalid && 
+                      this.form.controls.passwordGroup.hasError('mustMatch') &&
+                      this.form.controls.passwordGroup.controls.confirmPassword.dirty &&
+                      (this.form.controls.passwordGroup.dirty || this.form.controls.passwordGroup.touched)) {
+                    <mat-error>Passwords must match</mat-error>
+                }
+            </div>
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" placeholder="Enter Fisrt name" formControlName="firstName">
+                @if(this.form.controls.firstName.invalid){
+                    <mat-error>{{getErrorMsg("firstName")}}</mat-error>
+                }
+                <!-- @if(this.form.controls.firstName.hasError('required')){
+                    <mat-error>This field is required</mat-error>
+                }  -->
+            </mat-form-field>
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>Last Name</mat-label>
+                <input matInput type="text" placeholder="Enter Last name" formControlName="lastName">
+                @if(this.form.controls.lastName.invalid){
+                    <mat-error>{{getErrorMsg("lastName")}}</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>Display Name</mat-label>
+                <input matInput type="text" placeholder="Enter Display name" formControlName="displayName">
+                @if(this.form.controls.displayName.invalid){
+                    <mat-error>{{getErrorMsg("displayName")}}</mat-error>
+                } 
+            </mat-form-field>  
+            <div class="button-container">
+                <button mat-raised-button color="primary" >Register
+                    @if( loading$ | async )    {
+                        <mat-icon>
+                            <mat-spinner color="accent" diameter="20"> </mat-spinner>
+                        </mat-icon>
+                    }
+                    <!-- <mat-icon *ngIf="loading$ | async">                        
+                        <mat-spinner color="accent" diameter="20"> </mat-spinner>
+                    </mat-icon>   -->
+                </button>
+                <span style="flex-grow: 1;"></span>
+                <a routerLink="../login" skipLocationChange="true"  >Cancel</a>
+            </div>
+            <div *ngIf="isSubmitOk">
+                <h2>Registered successfully</h2>
+                <h3>Please check your email for password verify instructions</h3>
+            </div>
+        </form>
+        
+    </div>
+</div>

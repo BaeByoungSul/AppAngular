@@ -1,0 +1,30 @@
+<!-- <h1 mat-dialog-title>{{dialogTitle}}</h1>
+<div mat-dialog-content>
+    {{confirmMessage}}
+</div>
+<div mat-dialog-actions style="margin-left: 40px;">
+
+  <button mat-raised-button (click)="onCancelClick()">Cancel</button>
+  <button mat-raised-button color="primary"[mat-dialog-close]="returnMsg">Ok</button>
+</div> -->
+
+<div style="padding: 10px;">
+    <h1 mat-dialog-title>{{dialogTitle}}</h1>
+    <!-- <div mat-dialog-content>
+      <div>{{attribute1}}</div>
+      {{confirmMessage}}
+    </div> -->
+
+    <div mat-dialog-content>
+      <div *ngIf="attribute1" >{{attribute1}}</div>
+       <div>{{confirmMessage}}</div>
+    </div>
+
+
+    <div mat-dialog-actions style="margin-left: 20px;">
+      <!-- <button mat-raised-button (click)="onNoClick()">Cancel</button> -->
+      <button mat-raised-button mat-dialog-close (click)="onCancelClick()">Cancel</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="returnMsg" >Ok</button>
+    </div>
+    
+</div>

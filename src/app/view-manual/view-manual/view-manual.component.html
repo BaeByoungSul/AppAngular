@@ -1,0 +1,62 @@
+<div class="top-container">
+
+    <app-dir-list 
+    [queryDirPath]="queryDirPath" 
+    [dirList]="dirList" 
+    (navigateFolder)="queryInFolder($event)" />
+
+    <div class="select-container">
+        <mat-form-field>
+            <mat-select [(value)]="selectedPattern" placeholder="Mode"
+                    (selectionChange)="onFilePattern($event)">
+                <mat-option *ngFor="let fileInfo of filePattern" [value]="fileInfo"> {{fileInfo}} </mat-option>        
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field style="width: 500px; ">
+            <mat-label>Select a filename</mat-label>
+            <mat-select 
+            (selectionChange)="onFileSelection($event)">
+            <mat-option style="width: 450px;"
+                *ngFor="let fileInfo of fileList" [value]="fileInfo.fileName">
+                {{fileInfo.fileName}}
+            </mat-option>
+            </mat-select>
+        </mat-form-field>    
+        <button  mat-raised-button color="primary"
+            (click)="viewFile()">View File
+            <mat-icon>cloud_download</mat-icon>
+        </button> 
+        <mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"
+            [diameter]="50">
+        </mat-progress-spinner>    
+        <p class="fileList">
+            <span *ngFor="let item of fileList" >{{item.fileName}}
+            <span style="background-color: aqua;">&nbsp;</span>
+            </span> 
+        </p> 
+    </div>   
+    <div class="viewer1"  *ngIf="selectedPattern === 'pdf file'"   >
+        <ng2-pdfjs-viewer #pdfViewer></ng2-pdfjs-viewer>
+    </div>
+    <div class="viewer2" 
+        *ngIf="selectedPattern === 'doc file'" #takeHtml id="result1" >
+    </div>  
+    <textarea class="viewer2" readonly  *ngIf="selectedPattern === 'text file'">{{textData}}
+    </textarea>
+</div>
+<!-- *ngIf="selectedPattern === 'pdf file'"  -->
+
+<!-- <div class="top-container">
+    <div class="dirPath-group">
+        <button mat-raised-button class="btn_width" color="primary" (click)="folderClick(-1)">File
+            <mat-icon>home</mat-icon>
+        </button>
+        <button mat-stroked-button color="primary"
+            *ngFor="let folder of serverfolders;let i = index" (click)="folderClick(i)">
+            {{folder}}
+        </button>  
+        <span class="spacer"></span>
+        <mat-icon class="pointer" (click)="openNewFolderDialog()">create_new_folder</mat-icon>
+    </div>
+   
+</div> -->

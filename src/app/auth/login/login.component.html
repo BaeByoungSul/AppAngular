@@ -1,0 +1,42 @@
+<div class="top-container">
+    <div class="input-container">
+        <!-- <div><span>Login</span></div> -->
+        <div>Login</div>
+        <form [formGroup]="form" (submit)="submit()">
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" placeholder="Enter your email" formControlName="email">
+                @if (form.controls['email'].invalid) {
+                  <mat-error>{{emailErrors()}}</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Enter your password" formControlName="password">
+                @if (form.controls['password'].invalid) {
+                  <mat-error>{{passwordErrors()}}</mat-error>
+                }
+            </mat-form-field>
+          
+            <div class="button-container">
+                <button mat-raised-button color="primary" >Login
+                    @if( loading$ | async )    {
+                        <mat-icon>
+                            <mat-spinner color="accent" diameter="20"> </mat-spinner>
+                        </mat-icon>
+                    }
+                    <!-- <mat-icon *ngIf="loading$ | async">                        
+                        <mat-spinner color="accent" diameter="20"> </mat-spinner>
+                    </mat-icon>   -->
+                </button>
+                <span style="flex-grow: 1;"></span>
+                <a routerLink="../register" skipLocationChange="true"  >Register</a>
+                <a routerLink="../forgot-password" style="margin-left: 10px;" >Forgot Password?</a>
+            
+    
+            </div>
+
+        </form>
+    </div>
+</div>
+

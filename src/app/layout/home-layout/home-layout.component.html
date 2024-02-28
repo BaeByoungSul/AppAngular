@@ -1,0 +1,20 @@
+<div class="top-container">
+    <app-header (toggleEvent)="sidenavToggle($event)"></app-header>
+    <mat-sidenav-container>
+        <mat-sidenav 
+            [mode]="sideNavMode" opened="{{showSideMenu}}">
+            <!-- <ul>
+                <li><a routerLink="first" skipLocationChange="true">Child A</a></li>
+                <li><a routerLink="second" skipLocationChange="true">Child B</a></li>
+            </ul>       
+                      -->
+            <app-menu-list></app-menu-list>
+        </mat-sidenav>
+        <mat-sidenav-content #content >
+            <!-- <div #child2>Second Child</div>
+            <div #errors>2 Errors</div>  -->
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+    <app-footer #footer></app-footer>
+</div>

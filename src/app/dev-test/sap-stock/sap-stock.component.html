@@ -1,0 +1,58 @@
+<div class="top-container">
+
+    <div class="form-title">
+        <span>조회조건</span> 
+    </div>
+    <form [formGroup]="form" (submit)="onSubmit()">
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+            <mat-label>Plant</mat-label>
+            <input matInput type="text" formControlName="plant">
+            @if(this.form.controls.plant.invalid){
+                <mat-error>{{getErrorMsg("plant")}}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+            <mat-label>창고코드</mat-label>
+            <input matInput type="text" formControlName="lgorts">
+            @if(this.form.controls.lgorts.invalid){
+                <mat-error>{{getErrorMsg("lgorts")}}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+            <mat-label>자재번호</mat-label>
+            <input matInput type="text"  formControlName="matnrs">
+            @if(this.form.controls.matnrs.invalid){
+                <mat-error>{{getErrorMsg("matnrs")}}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+            <mat-label>배치번호</mat-label>
+            <input matInput type="text"  formControlName="chargs">
+            @if(this.form.controls.chargs.invalid){
+                <mat-error>{{getErrorMsg("chargs")}}</mat-error>
+            }
+        </mat-form-field>
+        
+        <button mat-raised-button color="primary" >Search
+            @if( loading$ | async )    {
+                <mat-icon>
+                    <mat-spinner color="accent" diameter="20"> </mat-spinner>
+                </mat-icon>
+            }
+            <!-- <mat-icon *ngIf="loading$ | async">                        
+                <mat-spinner color="accent" diameter="20"> </mat-spinner>
+            </mat-icon>   -->
+        </button>
+    </form>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns; let i=index">
+          <th mat-header-cell *matHeaderCellDef>{{ displayedColumns2[i] }}</th>
+          <td mat-cell *matCellDef="let stock">{{ stock[column] }}</td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let rowData; columns: displayedColumns"></tr>
+      </table>
+      <mat-paginator #paginator pageSize="10" [pageSizeOptions]="[5,10, 15]" showFirstLastButtons></mat-paginator>
+</div>
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>

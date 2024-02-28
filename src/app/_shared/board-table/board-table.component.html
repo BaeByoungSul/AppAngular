@@ -1,0 +1,33 @@
+<div style="display: flex; flex-direction: column;">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="Date">
+          <th mat-header-cell *matHeaderCellDef> Date. </th>
+          <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+        </ng-container>
+        <ng-container matColumnDef="TemperatureC">
+          <th mat-header-cell *matHeaderCellDef> TemperatureC </th>
+          <td mat-cell *matCellDef="let element"> {{element.TemperatureC}} </td>
+        </ng-container>
+        <ng-container matColumnDef="TemperatureF">
+          <th mat-header-cell *matHeaderCellDef> TemperatureF </th>
+          <td mat-cell *matCellDef="let element"> {{element.TemperatureF}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Summary">
+          <th mat-header-cell *matHeaderCellDef> Summary </th>
+          <td mat-cell *matCellDef="let element"> {{element.Summary}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
+        
+        <!-- <tr mat-header-row class="header-row" *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row class="table-row" *matRowDef="let row; columns: displayedColumns;"></tr> -->
+      </table>
+      <div style="flex-grow: 1; background-color: antiquewhite;"></div>
+      
+      <mat-paginator [pageSizeOptions]="[3, 5, 7]"
+        showFirstLastButtons  aria-label="Select page of periodic elements">
+      </mat-paginator>
+</div>
+
+  

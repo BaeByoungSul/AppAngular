@@ -1,0 +1,34 @@
+<div class="top-container" >
+    <div class="card-container">
+        <!-- <app-board-card class="card-item"
+            *ngFor="let item of cards" background="{{item.cardBackground}}">
+            {{item.cardTitle}}
+        </app-board-card>  -->
+        <!-- Cards with media area -->
+
+        <app-board-card class="card-item" 
+        *ngFor="let item of cards" background="{{item.cardBackground}}">
+        {{item.cardTitle}}
+        </app-board-card> 
+    </div>
+    <div class="chart-container"  >
+      
+        <div>
+            <canvas id="home-dashboard_1"></canvas>
+        </div>
+        <div>
+            <canvas id="home-dashboard_2"></canvas>
+        </div>
+    </div>
+    <div class="table-container" >
+        
+            <app-board-table></app-board-table>
+        
+    </div>
+</div>
+<!-- [ngStyle]="{'height.px': cardHeight,
+'width.px': cardWidth}" -->
+<!--
+[ngStyle]="{'width.px': topWidth,
+'height.px': topHeight,
+'margin.px': topX }" -->

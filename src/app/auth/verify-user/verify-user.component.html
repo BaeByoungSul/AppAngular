@@ -1,0 +1,12 @@
+<h1 >Verify Email</h1>
+<div>
+    <div *ngIf="showSuccess">
+        <h2 style="color: blue;" > Your account has been verified. Please 
+            <a routerLink="/home/auth/login"> click here to log in. </a>
+        </h2> 
+    </div>
+    <div *ngIf="showError"> 
+        <h2 style="color: red;"> {{errorMessage}} </h2> 
+    </div>
+    
+</div>

@@ -1,0 +1,19 @@
+<div style="padding: 10px;">
+    <h1 mat-dialog-title>{{dialogTitle}}</h1>
+    
+    <div mat-dialog-content>
+      <div *ngIf="attribute1" >{{attribute1}}</div>
+      <mat-form-field>
+        <mat-label>{{inputTitle}}</mat-label>
+        <input matInput [(ngModel)]="inputElement" cdkFocusInitial>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions style="margin-left: 20px;">
+      <!-- <button mat-raised-button (click)="onNoClick()">Cancel</button> -->
+      <button mat-raised-button mat-dialog-close>Cancel</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="inputElement" >Ok</button>
+    </div>
+    
+</div>
+

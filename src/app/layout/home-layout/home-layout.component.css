@@ -1,0 +1,30 @@
+.top-container {
+    display:flex;
+    flex-direction:column;
+    height: 100vh;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* border: 1px solid lightgray; */
+}
+mat-sidenav-container {
+    flex-grow: 1;
+    /* margin-top: 2px; */
+    border: 1px solid lightgray;
+}
+mat-sidenav-container > mat-sidenav{
+    /* height: auto; */
+    width: 300px;
+    /* background-color: aqua; */
+}
+mat-sidenav-container > mat-sidenav-content{
+   /* flex-grow: 1; */
+   /* background-color: antiquewhite; */
+   background-color: transparent;
+}
+app-footer {
+    /* border: 1px solid lightgray; */
+    padding: 10px;
+    background-color: lightgray;
+    text-align: center;
+}
+

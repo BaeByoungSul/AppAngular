@@ -1,0 +1,45 @@
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="padding: 10px;">
+      <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns; let i = index " >
+        <th mat-header-cell *matHeaderCellDef> {{displayedColumns2[i]}} </th>
+        <td mat-cell style="white-space: pre-line" *matCellDef="let element"
+            (contextmenu)="onContextMenu($event, element)"> 
+          {{element[column]}} 
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table> 
+    
+  <mat-paginator #paginator [pageSizeOptions]="[8,10]" showFirstLastButtons></mat-paginator>
+  
+  <div style="visibility: hidden; position: fixed"
+    [style.left]="contextMenuPosition.x"
+    [style.top]="contextMenuPosition.y"
+    [matMenuTriggerFor]="contextMenu">
+  </div>
+  <mat-menu #contextMenu="matMenu" #contextMenu2="matMenu">
+    <ng-template matMenuContent let-item="item">
+      <button mat-menu-item (click)="openRenameDialog(item)">
+        <mat-icon>edit</mat-icon>
+        <span>Rename</span>
+      </button>
+
+      <button mat-menu-item (click)="deleteFile(item)">
+        <mat-icon>delete file</mat-icon>
+        <span>Delete</span>
+      </button>
+ 
+
+    </ng-template>
+  </mat-menu>
+
+
+
+
+
+<!-- <p>List Of File</p>
+<span *ngFor="let item of fileList" >{{item.fileName}} / </span> -->
+
+

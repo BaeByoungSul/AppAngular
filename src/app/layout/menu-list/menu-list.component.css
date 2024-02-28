@@ -1,0 +1,7 @@
+.icon-div {
+    /* background-color: aquamarine; */
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+

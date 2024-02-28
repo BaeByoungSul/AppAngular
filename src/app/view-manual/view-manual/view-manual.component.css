@@ -1,0 +1,47 @@
+button{
+    width: 150px;
+}
+.top-container{
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 5px;
+}
+app-dir-list{
+    flex: 0 0 auto;
+    min-width: 1300px;
+}
+.select-container{
+    flex: 0 0 auto;
+    min-width: 1300px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 3px;
+    border: 1px solid lightgray;
+}
+.fileList {
+    width: 400px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+
+    flex: 0 0 auto;
+}
+.viewer1, .viewer2, .viewer3{
+    flex-grow: 1;
+    min-width: 1300px;
+    border: 1px solid lightgray;
+}
+.viewer2, .viewer3{
+    flex-grow: 1;
+    min-width: 1300px;
+    overflow: auto;
+    padding-left: 10px;
+    
+    border: 1px solid lightgray;
+}

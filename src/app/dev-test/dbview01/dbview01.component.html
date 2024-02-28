@@ -1,0 +1,50 @@
+<div class="top-container">
+    <div class="form-title">
+        <span>조회조건</span> 
+    </div>
+    <form [formGroup]="form" (submit)="onSubmit()">
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+            <mat-label>해당월</mat-label>
+            <input matInput type="text" formControlName="yymm">
+            @if(this.form.controls.yymm.invalid){
+                <mat-error>{{getErrorMsg("yymm")}}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+            <mat-label>Plant</mat-label>
+            <input matInput type="text" formControlName="plant">
+            @if(this.form.controls.plant.invalid){
+                <mat-error>{{getErrorMsg("plant")}}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+            <mat-label>공정1</mat-label>
+            <input matInput type="text"  formControlName="procs">
+            @if(this.form.controls.procs.invalid){
+                <mat-error>{{getErrorMsg("procs")}}</mat-error>
+            }
+        </mat-form-field>
+        <button mat-raised-button color="primary" >Search
+            @if( loading$ | async )    {
+                <mat-icon>
+                    <mat-spinner color="accent" diameter="20"> </mat-spinner>
+                </mat-icon>
+            }
+            <!-- <mat-icon *ngIf="loading$ | async">                        
+                <mat-spinner color="accent" diameter="20"> </mat-spinner>
+            </mat-icon>   -->
+        </button>
+    </form>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns; let i = index " >
+          <th mat-header-cell *matHeaderCellDef> {{displayedColumns2[i]}} </th>
+          <td mat-cell style="white-space: pre-line" *matCellDef="let element"> {{element[column]}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table> 
+    <mat-paginator #paginator [pageSizeOptions]="[10,15]" showFirstLastButtons></mat-paginator>
+    
+</div>
+
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>

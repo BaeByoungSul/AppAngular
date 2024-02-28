@@ -1,0 +1,12 @@
+.table-row {
+    /* height: 30px !important; */
+    height: 35px;
+    border-bottom: none;
+    padding: 5px 0;
+    /* align-items: stretch;
+     */
+  }
+  .header-row {
+    height: 30px !important;
+  }
+  

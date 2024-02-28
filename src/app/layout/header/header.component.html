@@ -1,0 +1,59 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button 
+        (click)="menuIconClick()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>낙동강 홈</span>
+    <span class="example-spacer"></span>
+    <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button> -->
+    <span class="span-expiry" *ngIf="authService$.isLoggedIn()">
+      {{authService$.getExpiryLeftTime() }}
+    </span>
+    <button mat-button [matMenuTriggerFor]="menu"
+        >Plant Role({{authService$.getSelectedMainRole()}})</button>
+    <mat-menu #menu="matMenu">
+      <!-- <button mat-menu-item 
+            *ngFor="let item of currentUser.mainRoles">
+        {{item}}
+      </button> -->
+      <button mat-menu-item
+            *ngFor="let item of authService$.getMainRoles()"
+            (click)="clickMainRole(item)">
+        {{item}}
+      </button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menu2">Role({{authService$.getSelectedRole()}})</button>
+    <mat-menu #menu2="matMenu">
+        <button mat-menu-item 
+            *ngFor="let item of authService$.getRoles()"
+            (click)="clickSubRole(item)">
+          {{item}}
+        </button>     
+    </mat-menu>
+
+    <button mat-button 
+      *ngIf="!authService$.isLoggedIn() && !authService$.isRefreshTokenValid()" 
+      routerLink="/home/auth/login" >Login
+      <mat-icon>login</mat-icon>
+    </button>
+    
+    <button mat-button
+      *ngIf="!authService$.isLoggedIn() && authService$.isRefreshTokenValid()"
+      (click)="refreshLogin()">Refresh
+      <!-- <mat-icon>refresh</mat-icon> -->
+      <mat-icon *ngIf="loading$ | async">refresh
+        <mat-spinner color="accent" diameter="20"> </mat-spinner>
+      </mat-icon>
+    </button>
+    <button mat-button
+      *ngIf="authService$.isLoggedIn() || authService$.isRefreshTokenValid()"
+      (click) = "authService$.logout()">Logout
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+

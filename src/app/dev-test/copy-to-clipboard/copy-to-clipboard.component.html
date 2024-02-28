@@ -1,0 +1,21 @@
+<div class="top-container">
+    <div style="display: flex; gap: 10px; margin: 5px; ">
+        <button mat-raised-button color="primary" (click)="onQueryDb()">조회</button>
+        <span style="flex: 1 0 auto"></span>
+        <button mat-raised-button color="primary" [cdkCopyToClipboard]="copyData()">Copy Table To Clipboard(Json)</button> 
+        <!-- <span style='margin-right:1.25em; display:inline-block;'>&nbsp;</span> -->
+        <button mat-raised-button color="primary" (click)="copyTable()">Copy Table To Clipboard</button>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+        <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+        <td mat-cell style="white-space: pre-line" *matCellDef="let element"> {{element[column]}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table> 
+    <mat-paginator #paginator [pageSizeOptions]="[5,10]" showFirstLastButtons></mat-paginator>
+    
+</div>
+
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
